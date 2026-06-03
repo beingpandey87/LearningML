@@ -6,4 +6,4 @@ seaborn
 statsmodels
 jupyterlab
 mlflow
-
+Flask

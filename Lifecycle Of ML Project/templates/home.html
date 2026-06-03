@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWI Prediction</title>
+</head>
+<body>
+    <h1>FWI Prediction</h1>
+    <form action="{{url_for('predict_data')}}" method="post">
+        <div style="margin-bottom: 10px;">
+            <input type="text" id="temperature" name="temperature" placeholder="Temperature" required>
+        </div>       
+        <div style="margin-bottom: 10px;">
+            <input type="number" id="rh" name="rh"  placeholder="Relative Humidity (rh)" required>
+        </div> 
+        <div style="margin-bottom: 10px;">
+            <input type="number" id="ws" name="ws" step="any" placeholder="Wind Speed (ws)" required>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <input type="number" id="rain" name="rain" step="any" placeholder="Rain (mm)" required>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <input type="number" id="ffmc" name="ffmc" step="any" placeholder="Fine Fuel Moisture Code (FFMC)" required>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <input type="number" id="dmc" name="dmc" step="any" placeholder="Duff Moisture Code (DMC)" required>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <input type="text" id="isi" name="isi" step="any" placeholder="Initial Spread Index (ISI)" required>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <input type="number" id="classes" name="classes" step="any" placeholder="Classes" required>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <input type="number" id="region" name="region" step="any" placeholder="Region" required>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <button type="submit" style="width: 300px;" class="btn btn-primary btn-large">Predict</button>
+        </div>
+    </form>
+    <h2>Prediction Result: {{ prediction }}</h2>
+</body>
+</html>
